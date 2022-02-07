@@ -37,6 +37,11 @@ export class PostsService {
     return this.postsUpdated.asObservable();
   }
 
+  // searches for a post with the corresponding id field
+  getPost(id: string) {
+    return {...this.posts.find(p => p.id === id)};
+  }
+
   addPost(title: string, content: string) {
 
     const post: Post = {
@@ -57,6 +62,19 @@ export class PostsService {
 
   }
 
+  updatePost(id: string, title: string, content: string) {
+    const post: Post = {
+      id: id,
+      title: title,
+      content: content
+    };
+    this.http
+      .put('http://localhost:3000/api/posts/' + id, post)
+      .subscribe(response => {
+        console.log(response);
+      })
+  }
+
   deletePost(postId: string) {
     this.http
       .delete('http://localhost:3000/api/posts/' + postId)
@@ -65,6 +83,6 @@ export class PostsService {
         this.posts = updatedPosts;
         this.postsUpdated.next([...this.posts]);
       });
-  }
+    }
 
 }
