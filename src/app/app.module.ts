@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { PostListComponent } from './posts/post-list/post-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PostsService } from './posts/posts.service';
+import { AppRoutingModule } from './app.routing.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PostsService } from './posts/posts.service';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
     MatFormFieldModule,
     BrowserAnimationsModule,
