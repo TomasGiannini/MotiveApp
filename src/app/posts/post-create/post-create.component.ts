@@ -4,6 +4,7 @@ import { FormControl, FormControlName, FormGroup, FormsModule, NgForm, Validator
 import { PostsService } from '../posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from '../post.model';
+import { mimeType } from './mime-type.validator';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class PostCreateComponent implements OnInit {
       this.form = new FormGroup({
         'title': new FormControl(null, {validators: [Validators.required]}),
         'content': new FormControl(null, {validators: [Validators.required]}),
-        'image': new FormControl(null, {validators: [Validators.required]})
+        'image': new FormControl(null, {validators: [Validators.required], asyncValidators: [mimeType]})
       });
 
       this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -79,10 +80,18 @@ export class PostCreateComponent implements OnInit {
     }
 
     if (this.mode == 'create') {
-      this.postsService.addPost(this.form.value.title, this.form.value.content);
+      this.postsService.addPost(
+        this.form.value.title,
+        this.form.value.content,
+        this.form.value.image
+      );
     }
     else {
-      this.postsService.updatePost(this.postId, this.form.value.title, this.form.value.content)
+      this.postsService.updatePost(
+        this.postId,
+        this.form.value.title,
+        this.form.value.content
+      );
     }
 
     this.form.reset();
