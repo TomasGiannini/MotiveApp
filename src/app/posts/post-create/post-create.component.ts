@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormControlName, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 import { PostsService } from '../posts.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Post } from '../post.model';
@@ -17,6 +17,7 @@ export class PostCreateComponent implements OnInit {
   enteredTitle = '';
 
   form: FormGroup;
+  imagePreview: string;
   post: Post;
 
   private mode = 'create';
@@ -25,9 +26,11 @@ export class PostCreateComponent implements OnInit {
   constructor(public postsService: PostsService, public route: ActivatedRoute) { }
 
   ngOnInit() {
+      // defining what elements are in the create Post form
       this.form = new FormGroup({
         'title': new FormControl(null, {validators: [Validators.required]}),
-        'content': new FormControl(null, {validators: [Validators.required]})
+        'content': new FormControl(null, {validators: [Validators.required]}),
+        'image': new FormControl(null, {validators: [Validators.required]})
       });
 
       this.route.paramMap.subscribe((paramMap: ParamMap) => {
@@ -52,6 +55,22 @@ export class PostCreateComponent implements OnInit {
           this.postId = null;
         }
       });
+  }
+
+  onImagePicked(event: Event) {
+    // save the image file chosen
+    const file = (event.target as HTMLInputElement).files[0];
+    // storing file object
+    this.form.patchValue({image: file});
+    // informs angular that value changed and it should check the validity of new value
+    this.form.get('image').updateValueAndValidity();
+
+    // convert image to data URL
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagePreview = reader.result as string;
+    };
+    reader.readAsDataURL(file);
   }
 
   onSavePost() {
