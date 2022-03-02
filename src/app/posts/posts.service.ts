@@ -11,12 +11,9 @@ import { Router, RouterModule, Routes } from "@angular/router";
 export class PostsService {
 
   private posts: Post[] = [];
-<<<<<<< Updated upstream
   private postsUpdated = new Subject<{ posts: Post[]; postCount: number }>();
-=======
 
   constructor(private http: HttpClient, private router: Router) {}
->>>>>>> Stashed changes
 
   getPosts(postsPerPage: number, currentPage: number) {
     // backticks allow u to dynamically add values to a normal string
