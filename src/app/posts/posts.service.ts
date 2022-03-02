@@ -9,7 +9,7 @@ import { THIS_EXPR } from "@angular/compiler/src/output/output_ast";
 export class PostsService {
 
   private posts: Post[] = [];
-  private postsUpdated = new Subject<Post[]>();
+  private postsUpdated = new Subject<{ posts: Post[]; postCount: number }>();
 
   constructor(private http: HttpClient) {}
 
