@@ -16,6 +16,7 @@ import { PostListComponent } from './posts/post-list/post-list.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { PostsService } from './posts/posts.service';
 import { AppRoutingModule } from './app-routing.module';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatButtonModule,
     MatToolbarModule,
     MatExpansionModule,
-    HttpClientModule
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
