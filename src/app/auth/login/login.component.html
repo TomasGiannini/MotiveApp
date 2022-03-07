@@ -1,21 +1,29 @@
 <mat-card>
 
-  <form>
+  <form (submit)="onLogin(loginForm)" #loginForm="ngForm">
 
     <mat-form-field>
       <input
         matInput
-        type="email"
-        placeholder = "Email Address">
-        <mat-error *ngIf="">Please enter a valid email</mat-error>
+        name = "email"
+        ngModel
+        type ="email"
+        placeholder = "Email Address"
+        #emailInput = "ngModel"
+        required email>
+        <mat-error *ngIf="emailInput.invalid">Please enter a valid email</mat-error>
     </mat-form-field>
 
     <mat-form-field>
       <input
-        type="password"
         matInput
-        placeholder="Password">
-        <mat-error *ngIf="">Please enter a valid password</mat-error>
+        name = "password"
+        ngModel
+        type="password"
+        placeholder="Password"
+        #passwordInput = "ngModel"
+        required>
+        <mat-error *ngIf="passwordInput.invalid">Please enter a valid password</mat-error>
     </mat-form-field>
     <br>
 
