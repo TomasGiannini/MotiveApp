@@ -22,4 +22,16 @@ export class AuthService {
       })
   }
 
+  login(email: string, password: string) {
+    // user created with the auth.data.model
+    const authData: AuthData = {
+      email: email,
+      password: password
+    }
+    this.http.post('http://localhost:3000/api/user/login', authData)
+      .subscribe(response => {
+        console.log(response);
+      });
+  }
+
 }
