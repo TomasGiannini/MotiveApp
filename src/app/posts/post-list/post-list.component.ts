@@ -11,7 +11,7 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './post-list.component1.html',
   styleUrls: ['./post-list.component.css']
 })
-export class PostListComponent implements OnInit, OnDestroy {
+export class PostListComponent implements OnInit, OnDestroy{
 
   posts: Post[] = [];
   private postsSub: Subscription;
@@ -27,13 +27,18 @@ export class PostListComponent implements OnInit, OnDestroy {
   constructor(public postsService: PostsService, private authService: AuthService) { }
 
   ngOnInit() {
+    this.postsService.getPosts(this.postsPerPage,this.currentPage);
+    this.userId = this.authService.getUserId();
+
+
+
     // 使用mock
-    this.posts = ['4ttt-1646255362488.jpg',
+    /*this.posts = ['4ttt-1646255362488.jpg',
       '123-1646763514921.jpg', '123-1646765434138.jpg',
       '123-1646765763244.png', '123-1646766155169.jpg', 'tomas22-1646172529005.jpg',
       '345-1646765470942.jpg', 'ffff-1646762233912.jpg', 'rrr-1646760741962.jpg',
       'vfvdv-1646170173122.jpg', 'ttt-1646675511647.jpg', 'vvvvvvvvv-1646855681860.jpg'
-    ].map((tt, i) => {
+    .map((tt, i) => {
       return {
         id: 'id_' + i,
         title: 'images_' + i,
@@ -44,7 +49,7 @@ export class PostListComponent implements OnInit, OnDestroy {
     })
     this.totalPosts = this.posts.length;
     this.calcGroup(this.posts);
-    /* 
+    /*
     this.postsService.getPosts(this.postsPerPage, this.currentPage);
     this.userId = this.authService.getUserId();
     */
@@ -87,19 +92,20 @@ export class PostListComponent implements OnInit, OnDestroy {
   }
 
   /* 计算瀑布流图片分组 */
-  // 每列宽度400px
+  // average colomn width 400px
   postGroup: { height: number, list: Post[] }[] = [
     { height: 0, list: [] },
     { height: 0, list: [] },
     { height: 0, list: [] },
   ];
+
   calcGroup(postList: Post[]) {
     postList.forEach(tt => {
       let img = new Image();
       img.onload = () => {
-        let h = 400 / img.width * img.height;// 等比例计算高度
-        h += tt.title.length * 25;// 标题加权
-        h += tt.content.length * 20;// 内容加权
+        let h = 400 / img.width * img.height;// get the calculated height
+        h += tt.title.length * 25;// add weight to title
+        h += tt.content.length * 20;// add weight to content
         let minHItem = this.postGroup[0];
         this.postGroup.forEach(p => {
           if (p.height < minHItem.height) minHItem = p;

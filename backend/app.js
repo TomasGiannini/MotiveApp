@@ -10,7 +10,7 @@ const userRoutes = require("./routes/user");
 const app = express();
 
 // connect MongoDB
-mongoose.connect("mongodb+srv://Tomas:MotiveApp123@cluster0.bcqej.mongodb.net/motiveAppDatabase?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://YingMing:MotiveApp123@cluster0.bcqej.mongodb.net/motiveAppDatabase?retryWrites=true&w=majority")
   .then(() => {
     console.log('Connected to Database');
   })
