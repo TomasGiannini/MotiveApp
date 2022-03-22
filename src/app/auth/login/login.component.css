@@ -1,3 +1,9 @@
 mat-form-field {
   width: 100%
 }
+
+.login-title {
+  font-size: 80px;
+  font-weight: 500;
+  margin-top: 50px;
+}

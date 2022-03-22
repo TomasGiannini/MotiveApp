@@ -12,6 +12,7 @@ import {MatChipsModule} from '@angular/material/chips';
 export class ProfilePageComponent implements OnInit {
 
   currentlySelected = 1;
+  showUpcomingEvent = 1;
 
   constructor() { }
 
@@ -42,6 +43,12 @@ export class ProfilePageComponent implements OnInit {
       this.currentlySelected = 1;
 
     }
+  }
+
+  hide() {
+
+    this.showUpcomingEvent = 0;
+
   }
 
 }

@@ -65,7 +65,7 @@
 
   </mat-expansion-panel>
 
-  <mat-expansion-panel *ngIf="currentlySelected === 2">
+  <mat-expansion-panel *ngIf="currentlySelected === 2 && showUpcomingEvent === 1">
 
     <mat-expansion-panel-header>
       <p class="event-title">Pickup Soccer Game</p>
@@ -78,6 +78,10 @@
     <p class="content">I'm hosting a pickup soccer game with friends at Downsview Park. Bring as many boys as you want.</p>
     <p class="content">Date and Time: May 10. 1:00pm</p>
     <p class="content">Location: Downsview Fields</p>
+
+    <mat-action-row>
+      <button mat-button color="warn" (click)="hide()">Leave Event</button>
+    </mat-action-row>
 
   </mat-expansion-panel>
 

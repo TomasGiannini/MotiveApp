@@ -41,9 +41,12 @@
     <p>{{ post.content }}</p>
 
     <mat-action-row *ngIf="userIsAuthenticated && userId === post.creator">
+      <button mat-flat-button color="accent">I'm going!</button>
       <a mat-button color="primary" [routerLink]="['/edit', post.id]">EDIT</a>
       <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
     </mat-action-row>
+
+    <p>dddd</p>
 
   </mat-expansion-panel>
 </mat-accordion>
