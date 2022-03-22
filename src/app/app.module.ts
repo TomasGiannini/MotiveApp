@@ -9,6 +9,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import {MatChipList, MatChipsModule} from '@angular/material/chips';
+
 import { MatButtonModule } from '@angular/material/button';
 import { HeaderComponent } from './header/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -46,7 +48,8 @@ import { ProfilePageComponent } from './profile-page/profile-page.component';
     MatToolbarModule,
     MatExpansionModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatChipsModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -1,3 +1,32 @@
+<div>
+  <p class="categories-title">Categories</p>
+</div>
+<div>
+  <mat-chip-list aria-label="Fish Selection">
+    <mat-chip>Sports</mat-chip>
+    <mat-chip>Movies</mat-chip>
+    <mat-chip>Dating</mat-chip>
+    <mat-chip>Photography</mat-chip>
+    <mat-chip>Food</mat-chip>
+    <mat-chip>Performance</mat-chip>
+    <mat-chip>Night Out</mat-chip>
+    <mat-chip>Gaming</mat-chip>
+    <mat-chip>Shopping</mat-chip>
+    <mat-chip>Boys Only</mat-chip>
+    <mat-chip>Girls Only</mat-chip>
+    <mat-chip>Parents Only</mat-chip>
+  </mat-chip-list>
+
+</div>
+
+<br> <br>
+
+<div>
+  <p class="nearby-events">Nearby Events</p>
+</div>
+
+<br>
+
 <mat-accordion multi="true" *ngIf="posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
 
