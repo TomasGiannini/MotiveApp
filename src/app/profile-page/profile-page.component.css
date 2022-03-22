@@ -15,12 +15,32 @@
   margin-top: 20px;
 }
 
+.event-title {
+  font-size: large;
+  font-weight: 500;
+}
+
 .profile-name {
   font-size: 100px;
   font-weight: 700;
 }
 
+.bio {
+  font-size: 30px;
+  padding-top: 50px;
+}
+
 .profile-headings {
   font-size: 30px;
+  font-weight: 400;
+}
+
+.pic {
+  width: 200px;
+  height: 300px;
+}
+
+.content {
+  font-size: medium;
   font-weight: 400;
 }
