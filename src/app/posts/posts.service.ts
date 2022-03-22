@@ -5,12 +5,10 @@ import { map } from "rxjs/operators";
 import { Router } from "@angular/router";
 
 import { Post } from "./post.model";
-import { PostListComponent } from "./post-list/post-list.component";
 
 @Injectable({ providedIn: "root" })
 export class PostsService {
   private posts: Post[] = [];
-  private postslist: PostListComponent;
   private postsUpdated = new Subject<{ posts: Post[]; postCount: number }>();
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -43,7 +41,6 @@ export class PostsService {
           posts: [...this.posts],
           postCount: transformedPostData.maxPosts
         });
-        this.postslist.calcGroup(this.posts);
       });
 
   }
