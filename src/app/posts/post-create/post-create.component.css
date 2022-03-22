@@ -18,3 +18,9 @@ input[type="file"] {
 .image-preview img {
   height: 100%;
 }
+
+.create-event-title {
+  font-size: 100px;
+  font-weight: 700;
+  margin-top: 50px;
+}

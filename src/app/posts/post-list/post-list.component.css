@@ -33,3 +33,8 @@ mat-chip {
   color: black;
   width: 110px;
 }
+
+.event-title {
+  font-size: large;
+  font-weight: 500;
+}
