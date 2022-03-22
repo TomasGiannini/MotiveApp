@@ -11,19 +11,113 @@
   </div>
 
 </div>
+<br>
+
+<div class="chip-list">
+  <mat-chip-list aria-label="Fish Selection">
+    <mat-chip>Sports</mat-chip>
+    <mat-chip>Movies</mat-chip>
+    <mat-chip>Dating</mat-chip>
+    <mat-chip>Photography</mat-chip>
+    <mat-chip>Gym</mat-chip>
+    <mat-chip>Boys Only</mat-chip>
+  </mat-chip-list>
+</div>
+
 
 <div class="flex-container2">
 
-  <button mat-raised-button class="profile-headings">
+  <button mat-raised-button class="profile-headings" (click)="headingClicked(1)">
     Your Events
   </button>
 
-  <button mat-raised-button class="profile-headings">
+  <button mat-raised-button class="profile-headings" (click)="headingClicked(2)">
     Upcoming Events
   </button>
 
-  <button mat-raised-button class="profile-headings">
+  <button mat-raised-button class="profile-headings" (click)="headingClicked(3)">
     Past Events
   </button>
 
 </div>
+<br>
+
+<mat-accordion multi="true">
+  <mat-expansion-panel *ngIf="currentlySelected === 1">
+
+    <mat-expansion-panel-header>
+      MY
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="" [alt]="">
+    </div>
+
+    <p>Content</p>
+
+    <mat-action-row>
+      <a mat-button color="primary">EDIT</a>
+      <button mat-button color="warn">DELETE</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel *ngIf="currentlySelected === 2">
+
+    <mat-expansion-panel-header>
+      UPCOMING
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="" [alt]="">
+    </div>
+
+    <p>Content</p>
+
+    <mat-action-row>
+      <a mat-button color="primary">EDIT</a>
+      <button mat-button color="warn">DELETE</button>
+    </mat-action-row>
+
+  </mat-expansion-panel>
+
+  <mat-expansion-panel *ngIf="currentlySelected === 3">
+
+    <mat-expansion-panel-header>
+      PAST
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="" [alt]="">
+    </div>
+
+    <p>Content</p>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="currentlySelected === 3">
+
+    <mat-expansion-panel-header>
+      PAST
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="" [alt]="">
+    </div>
+
+    <p>Content</p>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel *ngIf="currentlySelected === 3">
+
+    <mat-expansion-panel-header>
+      PAST
+    </mat-expansion-panel-header>
+
+    <div class="post-image">
+      <img [src]="" [alt]="">
+    </div>
+
+    <p>Content</p>
+
+  </mat-expansion-panel>
+</mat-accordion>
